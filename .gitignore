@@ -1,0 +1,4 @@
+.idea/
+client/config/
+!client/config/sample.php
+client/log/
