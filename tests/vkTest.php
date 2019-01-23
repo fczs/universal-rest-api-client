@@ -1,14 +1,16 @@
 <?php
 // get client classes
 require_once dirname(__DIR__) . '/client/autoload.php';
+
 // create client instance for VK API
 $vk = new \URAC\Client('vk');
+
 // request user info
 $response = $vk->request('GET', 'users.get', [
     'user_id' => 0,
-    'fields' => $vk->config('FIELDS'),
-    'v' => $vk->config('VERSION'),
-    'access_token' => $vk->config('ACCESS_TOKEN')
+    'fields' => $vk->config('fields'),
+    'v' => $vk->config('v'),
+    'access_token' => $vk->config('access_token')
 ]);
 
 // display response
@@ -24,9 +26,9 @@ echo sprintf('<img src="%s">', $user->photo_400_orig);
 // request user friends info
 $friends = $vk->request('GET', 'friends.get', [
     'user_id' => 0,
-    'fields' => $vk->config('FIELDS'),
-    'v' => $vk->config('VERSION'),
-    'access_token' => $vk->config('ACCESS_TOKEN')
+    'fields' => $vk->config('fields'),
+    'v' => $vk->config('v'),
+    'access_token' => $vk->config('access_token')
 ]);
 
 // display response
